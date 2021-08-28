@@ -27,13 +27,13 @@ public class TicTacToeGame
 			user='X';
 	}
 	
-   public static void showBoard(char [][] gameBoard)
+   public static void showBoard()
    {
-	    for(char[] r : gameBoard)
+	    for(int i=0;i<3;i++)
 	    {
-		        for( char c : r)
+		        for(int j=0;j<3;j++)
 		        {
-		            System.out.print(c);
+		            System.out.print("_ ");
 		        }
 		        System.out.println();
 		  }
@@ -43,8 +43,7 @@ public class TicTacToeGame
 		char board[]=board();
 		chooseSymbol();
 		System.out.println("Computer = "+computer +" User = "+user);
-		char [][] gameBoard = {{'_','|','_','|','_'},{'_', '|', '_','|','_'},{' ','|',' ','|',' '}};
-	    showBoard(gameBoard);
+	    showBoard();
 	}
 
 }
