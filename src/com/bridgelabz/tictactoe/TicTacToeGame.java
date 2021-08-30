@@ -27,7 +27,7 @@ public class TicTacToeGame
 	   System.out.println(board[4]+"|"+board[5]+"|"+board[6]);
 	   System.out.println(board[7]+"|"+board[8]+"|"+board[9]);
     } 
-   public  int makeMove(char[] board,char user)
+   public  int checkMove(char[] board,char user)
    {
 	
 	   System.out.println("Select 1 to 9 to make move : ");
@@ -44,6 +44,10 @@ public class TicTacToeGame
 		       System.out.println("position is not empty please enter another position 1 - 9");
 	       }
 	   }
+   }
+   public void makeMove(int move,char[] board,char user)
+   {
+	   board[move]=user;
    }
    public boolean checkBlock(int move,char[] board)
    {

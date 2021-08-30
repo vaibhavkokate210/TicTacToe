@@ -11,8 +11,10 @@ public class TicTacToeRunner
 		System.out.println("User Symbol = "+user);
 		System.out.println("Computer Symbol = "+computer);
 		game.showBoard(board);
-		int index=game.makeMove(board,user);
+		int index=game.checkMove(board,user);
 		System.out.println("free Index = "+index);
+		game.makeMove(index,board,user);
+		game.showBoard(board);
 	}
 
 }
