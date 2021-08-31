@@ -56,4 +56,9 @@ public class TicTacToeGame
 	   else
 	       return false;
    }
+   public int toss()
+   {
+	   int result=(int) ((Math.random()*10)%2);
+	   return result;
+   }
 }
