@@ -4,6 +4,7 @@ import java.util.Scanner;
 
 public class TicTacToeGame 
 {
+	public static int count=0;
 	public char[] board()
 	{
 		char board[]=new char[10];
@@ -48,6 +49,7 @@ public class TicTacToeGame
    public void makeMove(int move,char[] board,char user)
    {
 	   board[move]=user;
+	   count++;
    }
    public boolean checkBlock(int move,char[] board)
    {
@@ -60,5 +62,26 @@ public class TicTacToeGame
    {
 	   int result=(int) ((Math.random()*10)%2);
 	   return result;
+   }
+   public int winOrTie(char board[],char user)
+   {
+	   boolean result=board[1]==user&&board[2]==user&&board[3]==user||board[4]==user&&board[5]==user&&board[6]==user||board[7]==user&&board[8]==user&&board[9]==user||board[1]==user&&board[4]==user&&board[7]==user||board[2]==user&&board[5]==user&&board[8]==user||board[3]==user&&board[6]==user&&board[9]==user||board[1]==user&&board[5]==user&&board[9]==user||board[3]==user&&board[5]==user&&board[7]==user;
+	   if(count<9)
+	   {
+		   if(result)
+			   return 1;
+		   else
+			   return 2;
+	   }
+	   else if(result)
+		 return 1;
+	   else if(count==9)
+	   {
+		   if(result)
+			   return 1;
+		   else
+			   return 0;
+	   }
+	   return 0;
    }
 }
