@@ -91,6 +91,9 @@ public class TicTacToeGame
 		   index=checkPosition(board,userSymbol);
 	   if(index==0)
 		   index=checkCorner(board);
+	   if(index==0)
+		   if(board[5]=='_')
+			   index=5;
 		   if(index==0)
 		   {
 			   while(true)
