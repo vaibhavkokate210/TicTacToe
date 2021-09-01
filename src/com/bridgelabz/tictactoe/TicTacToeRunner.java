@@ -71,7 +71,7 @@ public class TicTacToeRunner
 		         else
 		        {
 		    	    game.showBoard(board);
-		    	    System.out.println("Game tied");
+		    	    System.out.println("Board full So Game is tied");
 		    	    break;
 		        }
 			}
