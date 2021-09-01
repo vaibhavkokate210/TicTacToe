@@ -89,6 +89,8 @@ public class TicTacToeGame
 	   int index=checkPosition(board,compSymbol);
 	   if(index==0)
 		   index=checkPosition(board,userSymbol);
+	   if(index==0)
+		   index=checkCorner(board);
 		   if(index==0)
 		   {
 			   while(true)
@@ -158,5 +160,17 @@ public class TicTacToeGame
 	   if(board[5]==compSymbol&&board[7]==compSymbol&&checkBlock(3,board))
 		   return 3;
 	return 0;
+   }
+   public int checkCorner(char board[])
+   {
+	   if(board[1]=='_')
+		   return 1;
+	   if(board[3]=='_')
+		   return 3;
+	   if(board[7]=='_')
+		   return 7;
+	   if(board[9]=='_')
+		  return 9;
+	   return 0;
    }
 }
