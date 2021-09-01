@@ -4,6 +4,7 @@ public class TicTacToeRunner
 {
 	public static void main(String[] args) 
 	{
+		int flag;
 		TicTacToeGame game=new TicTacToeGame();
 		char board[]=game.board();
 		char user=game.chooseSymbol();
@@ -13,31 +14,67 @@ public class TicTacToeRunner
 		System.out.println("Its time to toss ");
 		int result=game.toss();
 		if(result==0)
+		{
 			System.out.println("User win toss");
+		    flag=1;
+		}
 		else
+		{
 			System.out.println("Computer win toss");
-		
+		    flag=0;
+		}
 		while(true)
 		{
-		    game.showBoard(board);
-		    int index=game.checkMove(board,user);
-		    System.out.println("free Index = "+index);
-		    game.makeMove(index,board,user);
-		    int cnt=game.winOrTie(board, user);
-		    if(cnt==2)
-		      continue;
-		    else if(game.winOrTie(board, user)==1)
-		    {
-		    	game.showBoard(board);
-		    	System.out.println("User wins");
-		        break;
-		    }
-		    else
-		    {
-		    	game.showBoard(board);
-		    	System.out.println("Game tied");
-		    	break;
-		    }
+			
+			if(flag==1)
+			{
+		         game.showBoard(board);
+		         System.out.println();
+		         int index=game.checkMove(board,user);
+		         game.makeMove(index,board,user);
+		         int cnt=game.winOrTie(board, user);
+		         if(cnt==2)
+		         {
+		           flag=0;
+		           continue;
+		         }
+		         else if(game.winOrTie(board, user)==1)
+		         {
+		           	game.showBoard(board);
+		    	    System.out.println("User wins");
+		            break;
+		         }
+		         else
+		        {
+		    	    game.showBoard(board);
+		    	    System.out.println("Game tied");
+		    	    break;
+		        }
+			}
+			else
+			{
+				game.showBoard(board);
+				System.out.println();
+				game.computerMove(board, computer);
+				int cnt=game.winOrTie(board, computer);
+				if(cnt==2)
+		         {
+		           flag=1;
+		           continue;
+		         }
+		         else if(game.winOrTie(board, computer)==1)
+		         {
+		           	game.showBoard(board);
+		    	    System.out.println("Compuetr wins");
+		            break;
+		         }
+		         else
+		        {
+		    	    game.showBoard(board);
+		    	    System.out.println("Game tied");
+		    	    break;
+		        }
+			}
 		}
 	}
 
