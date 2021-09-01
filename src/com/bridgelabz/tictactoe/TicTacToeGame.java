@@ -84,28 +84,28 @@ public class TicTacToeGame
 	   }
 	   return 0;
    }
-   public void computerMove(char []board,char compSymbol)
+   public void computerMove(char []board,char compSymbol,char userSymbol)
    {
 	   int index=checkPosition(board,compSymbol);
-	   while(true)
-	   {
+	   if(index==0)
+		   index=checkPosition(board,userSymbol);
 		   if(index==0)
 		   {
-			   int pos=(int) ((Math.random()*100)%9)+1;
-			   if(board[pos]=='_')
+			   while(true)
 			   {
-				   makeMove(pos,board,compSymbol);
-			       break;
+			        int pos=(int) ((Math.random()*100)%9)+1;
+			        if(board[pos]=='_')
+			       {
+				       makeMove(pos,board,compSymbol);
+			           break;
+			       }
 			   }
-			   else
-				   continue;
 		   }
 		   else
 		   {
 			   makeMove(index,board,compSymbol);
-			   break;
 		   }
-	   }
+	   
    }
    public int checkPosition(char []board,char compSymbol)
    {

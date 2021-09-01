@@ -55,7 +55,7 @@ public class TicTacToeRunner
 			{
 				game.showBoard(board);
 				System.out.println();
-				game.computerMove(board, computer);
+				game.computerMove(board, computer,user);
 				int cnt=game.winOrTie(board, computer);
 				if(cnt==2)
 		         {
